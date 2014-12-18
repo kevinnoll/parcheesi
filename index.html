@@ -21,15 +21,15 @@ text{
 <script>
 (function(){
     window.parcheesi = {};
-    var aGameFields = [{x:50,y:50,color:"red",radius:40,homepoint:4},{x:150,y:50,color:"red",radius:40,homepoint:3},{x:450,y:50,color:"white",radius:40,waypoint:1},{x:550,y:50,color:"white",radius:40,waypoint:2},{x:650,y:50,color:"lightblue",radius:40,waypoint:3},{x:950,y:50,color:"blue",radius:40,homepoint:1},{x:1050,y:50,color:"blue",radius:40,homepoint:4},{x:50,y:150,color:"red",radius:40,homepoint:1},{x:150,y:150,color:"red",radius:40,homepoint:2},{x:450,y:150,color:"white",radius:40,waypoint:40},{x:550,y:150,color:"blue",radius:40,finishpoint:1},{x:650,y:150,color:"white",radius:40,waypoint:4},{x:950,y:150,color:"blue",radius:40,homepoint:2},{x:1050,y:150,color:"blue",radius:40,homepoint:3},{x:450,y:250,color:"white",radius:40,waypoint:39},{x:550,y:250,color:"blue",radius:40,finishpoint:2},{x:650,y:250,color:"white",radius:40,waypoint:5},{x:450,y:350,color:"white",radius:40,waypoint:38},{x:550,y:350,color:"blue",radius:40,finishpoint:3},{x:650,y:350,color:"white",radius:40,waypoint:6},{x:50,y:450,color:"salmon",radius:40,waypoint:33},{x:150,y:450,color:"white",radius:40,waypoint:34},{x:250,y:450,color:"white",radius:40,waypoint:35},{x:350,y:450,color:"white",radius:40,waypoint:36},{x:450,y:450,color:"white",radius:40,waypoint:37},{x:550,y:450,color:"blue",radius:40,finishpoint:4},{x:650,y:450,color:"white",radius:40,waypoint:7},{x:750,y:450,color:"white",radius:40,waypoint:8},{x:850,y:450,color:"white",radius:40,waypoint:9},{x:950,y:450,color:"white",radius:40,waypoint:10},{x:1050,y:450,color:"white",radius:40,waypoint:11},{x:50,y:550,color:"white",radius:40,waypoint:32},{x:150,y:550,color:"red",radius:40,finishpoint:1},{x:250,y:550,color:"red",radius:40,finishpoint:2},{x:350,y:550,color:"red",radius:40,finishpoint:3},{x:450,y:550,color:"red",radius:40,finishpoint:4},{x:650,y:550,color:"green",radius:40,finishpoint:4},{x:750,y:550,color:"green",radius:40,finishpoint:3},{x:850,y:550,color:"green",radius:40,finishpoint:2},{x:950,y:550,color:"green",radius:40,finishpoint:1},{x:1050,y:550,color:"white",radius:40,waypoint:12},{x:50,y:650,color:"white",radius:40,waypoint:31},{x:150,y:650,color:"white",radius:40,waypoint:30},{x:250,y:650,color:"white",radius:40,waypoint:29},{x:350,y:650,color:"white",radius:40,waypoint:28},{x:450,y:650,color:"white",radius:40,waypoint:27},{x:550,y:650,color:"yellow",radius:40,finishpoint:4},{x:650,y:650,color:"white",radius:40,waypoint:17},{x:750,y:650,color:"white",radius:40,waypoint:16},{x:850,y:650,color:"white",radius:40,waypoint:15},{x:950,y:650,color:"white",radius:40,waypoint:14},{x:1050,y:650,color:"lightgreen",radius:40,waypoint:13},{x:450,y:750,color:"white",radius:40,waypoint:26},{x:550,y:750,color:"yellow",radius:40,finishpoint:3},{x:650,y:750,color:"white",radius:40,waypoint:18},{x:450,y:850,color:"white",radius:40,waypoint:25},{x:550,y:850,color:"yellow",radius:40,finishpoint:2},{x:650,y:850,color:"white",radius:40,waypoint:19},{x:50,y:950,color:"yellow",radius:40,homepoint:3},{x:150,y:950,color:"yellow",radius:40,homepoint:2},{x:450,y:950,color:"white",radius:40,waypoint:24},{x:550,y:950,color:"yellow",radius:40,finishpoint:1},{x:650,y:950,color:"white",radius:40,waypoint:20},{x:950,y:950,color:"green",radius:40,homepoint:2},{x:1050,y:950,color:"green",radius:40,homepoint:1},{x:50,y:1050,color:"yellow",radius:40,homepoint:4},{x:150,y:1050,color:"yellow",radius:40,homepoint:1},{x:450,y:1050,color:"lightyellow",radius:40,waypoint:23},{x:550,y:1050,color:"white",radius:40,waypoint:22},{x:650,y:1050,color:"white",radius:40,waypoint:21},{x:950,y:1050,color:"green",radius:40,homepoint:3},{x:1050,y:1050,color:"green",radius:40,homepoint:4}];
+    var aGameFields = [{x:50,y:50,color:"red",radius:40,homepoint:4},{x:150,y:50,color:"red",radius:40,homepoint:3},{x:450,y:50,color:"white",radius:40,waypoint:37},{x:550,y:50,color:"white",radius:40,waypoint:38},{x:650,y:50,color:"lightblue",radius:40,waypoint:39},{x:950,y:50,color:"blue",radius:40,homepoint:1},{x:1050,y:50,color:"blue",radius:40,homepoint:4},{x:50,y:150,color:"red",radius:40,homepoint:1},{x:150,y:150,color:"red",radius:40,homepoint:2},{x:450,y:150,color:"white",radius:40,waypoint:36},{x:550,y:150,color:"blue",radius:40,finishpoint:1},{x:650,y:150,color:"white",radius:40,waypoint:0},{x:950,y:150,color:"blue",radius:40,homepoint:2},{x:1050,y:150,color:"blue",radius:40,homepoint:3},{x:450,y:250,color:"white",radius:40,waypoint:35},{x:550,y:250,color:"blue",radius:40,finishpoint:2},{x:650,y:250,color:"white",radius:40,waypoint:1},{x:450,y:350,color:"white",radius:40,waypoint:34},{x:550,y:350,color:"blue",radius:40,finishpoint:3},{x:650,y:350,color:"white",radius:40,waypoint:2},{x:50,y:450,color:"salmon",radius:40,waypoint:29},{x:150,y:450,color:"white",radius:40,waypoint:30},{x:250,y:450,color:"white",radius:40,waypoint:31},{x:350,y:450,color:"white",radius:40,waypoint:32},{x:450,y:450,color:"white",radius:40,waypoint:33},{x:550,y:450,color:"blue",radius:40,finishpoint:4},{x:650,y:450,color:"white",radius:40,waypoint:3},{x:750,y:450,color:"white",radius:40,waypoint:4},{x:850,y:450,color:"white",radius:40,waypoint:5},{x:950,y:450,color:"white",radius:40,waypoint:6},{x:1050,y:450,color:"white",radius:40,waypoint:7},{x:50,y:550,color:"white",radius:40,waypoint:28},{x:150,y:550,color:"red",radius:40,finishpoint:1},{x:250,y:550,color:"red",radius:40,finishpoint:2},{x:350,y:550,color:"red",radius:40,finishpoint:3},{x:450,y:550,color:"red",radius:40,finishpoint:4},{x:650,y:550,color:"green",radius:40,finishpoint:4},{x:750,y:550,color:"green",radius:40,finishpoint:3},{x:850,y:550,color:"green",radius:40,finishpoint:2},{x:950,y:550,color:"green",radius:40,finishpoint:1},{x:1050,y:550,color:"white",radius:40,waypoint:8},{x:50,y:650,color:"white",radius:40,waypoint:27},{x:150,y:650,color:"white",radius:40,waypoint:26},{x:250,y:650,color:"white",radius:40,waypoint:25},{x:350,y:650,color:"white",radius:40,waypoint:24},{x:450,y:650,color:"white",radius:40,waypoint:23},{x:550,y:650,color:"yellow",radius:40,finishpoint:4},{x:650,y:650,color:"white",radius:40,waypoint:13},{x:750,y:650,color:"white",radius:40,waypoint:12},{x:850,y:650,color:"white",radius:40,waypoint:11},{x:950,y:650,color:"white",radius:40,waypoint:10},{x:1050,y:650,color:"lightgreen",radius:40,waypoint:9},{x:450,y:750,color:"white",radius:40,waypoint:22},{x:550,y:750,color:"yellow",radius:40,finishpoint:3},{x:650,y:750,color:"white",radius:40,waypoint:14},{x:450,y:850,color:"white",radius:40,waypoint:21},{x:550,y:850,color:"yellow",radius:40,finishpoint:2},{x:650,y:850,color:"white",radius:40,waypoint:15},{x:50,y:950,color:"yellow",radius:40,homepoint:3},{x:150,y:950,color:"yellow",radius:40,homepoint:2},{x:450,y:950,color:"white",radius:40,waypoint:20},{x:550,y:950,color:"yellow",radius:40,finishpoint:1},{x:650,y:950,color:"white",radius:40,waypoint:16},{x:950,y:950,color:"green",radius:40,homepoint:2},{x:1050,y:950,color:"green",radius:40,homepoint:1},{x:50,y:1050,color:"yellow",radius:40,homepoint:4},{x:150,y:1050,color:"yellow",radius:40,homepoint:1},{x:450,y:1050,color:"lightyellow",radius:40,waypoint:19},{x:550,y:1050,color:"white",radius:40,waypoint:18},{x:650,y:1050,color:"white",radius:40,waypoint:17},{x:950,y:1050,color:"green",radius:40,homepoint:3},{x:1050,y:1050,color:"green",radius:40,homepoint:4}];
 
     var aTokenData = [{x:50,y:50,color:"red",identifier:"token4",radius:30,fieldtype:"homepoint",fieldnumber:4},{x:50,y:150,color:"red",identifier:"token3",radius:30,fieldtype:"homepoint",fieldnumber:3},{x:150,y:150,color:"red",identifier:"token2",radius:30,fieldtype:"homepoint",fieldnumber:2},{x:150,y:50,color:"red",identifier:"token1",radius:30,fieldtype:"homepoint",fieldnumber:1},{x:1050,y:50,color:"blue",identifier:"token4",radius:30,fieldtype:"homepoint",fieldnumber:4},{x:1050,y:150,color:"blue",identifier:"token3",radius:30,fieldtype:"homepoint",fieldnumber:3},{x:950,y:50,color:"blue",identifier:"token1",radius:30,fieldtype:"homepoint",fieldnumber:1},{x:950,y:150,color:"blue",identifier:"token2",radius:30,fieldtype:"homepoint",fieldnumber:2},{x:50,y:950,color:"yellow",identifier:"token3",radius:30,fieldtype:"homepoint",fieldnumber:3},{x:50,y:1050,color:"yellow",identifier:"token4",radius:30,fieldtype:"homepoint",fieldnumber:4},{x:150,y:950,color:"yellow",identifier:"token2",radius:30,fieldtype:"homepoint",fieldnumber:2},{x:150,y:1050,color:"yellow",identifier:"token1",radius:30,fieldtype:"homepoint",fieldnumber:1},{x:950,y:950,color:"green",identifier:"token2",radius:30,fieldtype:"homepoint",fieldnumber:2},{x:950,y:1050,color:"green",identifier:"token3",radius:30,fieldtype:"homepoint",fieldnumber:3},{x:1050,y:950,color:"green",identifier:"token1",radius:30,fieldtype:"homepoint",fieldnumber:1},{x:1050,y:1050,color:"green",identifier:"token4",radius:30,fieldtype:"homepoint",fieldnumber:4}];
 
     parcheesi.oEntryPoints = {
-        red : 33,
-        blue : 3,
-        yellow : 23,
-        green : 13
+        red : 29,
+        blue : 39,
+        yellow : 19,
+        green : 9
     }
     parcheesi.oColors = {
         red : "red",
@@ -54,10 +54,13 @@ text{
     parcheesi.iDiced = 0;
 
     parcheesi.getWaypoint = function(iWaypoint){
-        return this.aWaypoints[iWaypoint-1];
+        return this.aWaypoints[iWaypoint];
     }
     parcheesi.setWaypoint = function(iWaypoint, oToken){
-        this.aWaypoints[iWaypoint-1] = oToken;
+        this.aWaypoints[iWaypoint] = oToken;
+    }
+    parcheesi.clearWaypoint = function(iWaypoint){
+        this.aWaypoints[iWaypoint] = undefined;
     }
 
     init = function(){
@@ -140,7 +143,7 @@ text{
         .enter()
         .append("g")
         .attr("class",function(d){
-            if(d.waypoint)
+            if(d.waypoint || d.waypoint === 0) // 0 is falsy so we need to doublecheck
                 return "gamefield waypoint point" + d.waypoint
             if(d.homepoint)
                 return "gamefield homepoint point" + d.homepoint + " " +d.color; 
@@ -159,7 +162,7 @@ text{
     oGroupSelection.append("text")
             .attr("cx",50)
             .attr("cy",50)
-            .text(function(d){return d.waypoint || d.homepoint || d.finishpoint})
+            .text(function(d){return d.waypoint || d.homepoint || d.finishpoint || 0})
             .attr("font-family", "sans-serif")
             .attr("font-size", "20px")
             .attr("fill", "black");
@@ -199,7 +202,6 @@ text{
     }
 
     parcheesi.move = function(oToken){
-        debugger;
         if(this._isProperPlayer(oToken)){
             var target = (oToken.fieldnumber + this.iDiced) % 40;
             if(this._reachesFinishZone(oToken,target)){
@@ -230,11 +232,12 @@ text{
         }
     }
 
-    parcheesi._reachesFinishZone = function(oToken, target){
-        if(oToken.fieldnumber < this.oEntryPoints[oToken.color]){
-            return target > (this.oEntryPoints[oToken.color]-1);            
+    parcheesi._reachesFinishZone = function(oToken,target){
+        if((oToken.fieldnumber <  this.oEntryPoints[oToken.color]-1) && target > this.oEntryPoints[oToken.color]-1){
+            return true;
         }
-        
+        return false;
+        //return target > (this.oEntryPoints[oToken.color]-1);            
     }
 
     parcheesi.jump = function(oToken, oDestination){
@@ -244,10 +247,28 @@ text{
         });
         oToken.x = datum.x;
         oToken.y = datum.y;
-        oToken.fieldnumber = datum.waypoint || datum.finishpoint || datum.homepoint; 
-        oToken.fieldtype = this.oFieldTypes.waypoint;
-        this.setWaypoint(this.oEntryPoints[oToken.color],oToken)
+        this._updateData(oToken, datum);
         this.next();
+    }
+
+    parcheesi._updateData = function(oToken, oDatum){
+        if(oDatum.waypoint || oDatum.waypoint === 0){ //if oToken will go to a waypoint, doublecheck because 0 is a falsy value, but for us its fine 
+            this.setWaypoint(oDatum.waypoint,oToken);
+            oToken.fieldtype = this.oFieldTypes.waypoint;
+            if(oToken.fieldtype === this.oFieldTypes.waypoint){
+                this.clearWaypoint(oToken.fieldnumber);
+            }    
+        } else if (oDatum.finishpoint) { //if oToken will go to a finishpoint
+            this.clearWaypoint(oToken.fieldnumber);
+            oToken.fieldtype = this.oFieldTypes.finishpoint;
+        } else if(oDatum.homepoint) { // oToken just got striked, and will go to a homepoint
+            this.clearWaypoint(oToken.fieldnumber);
+            oToken.fieldtype = this.oFieldTypes.homepoint;
+        }
+        oToken.fieldnumber = oDatum.waypoint || oDatum.homepoint || oDatum.finishpoint;
+        if(oDatum.waypoint === 0){ //TODO refactor.. just a workaround around falsy 0
+            oToken.fieldnumber = 0;
+        }       
     }
 
     parcheesi.action = function(oToken){
