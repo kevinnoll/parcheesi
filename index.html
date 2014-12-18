@@ -206,7 +206,9 @@ text{
             var target = (oToken.fieldnumber + this.iDiced) % 40;
             if(this._reachesFinishZone(oToken,target)){
                 if(this._isAbleToMoveInFinishArea(oToken,target)){
-
+                    var datum = d3.select(".gamefield.finishpoint.point"+this._getFinishField(oToken) + oToken.color).datum();
+                   debugger;
+                    this.jump(oToken,datum);
                 }
             } else {
                 if(this._waypointIsFree(oToken, target)){
@@ -214,6 +216,16 @@ text{
                     this.jump(oToken,datum);
                 } 
             }
+        }
+    }
+
+    parcheesi._getFinishField = function(oToken){
+        if(oToken.fieldtype === this.oFieldTypes.waypoint){
+            var wayToGoOutside = this.oEntryPoints[oToken.color] - oToken.fieldnumber;
+            var wayToGoInside = this.iDiced - wayToGoOutside;
+            return (wayToGoInside-1);
+        } else { // must be a finishpoint
+
         }
     }
 
@@ -237,7 +249,6 @@ text{
             return true;
         }
         return false;
-        //return target > (this.oEntryPoints[oToken.color]-1);            
     }
 
     parcheesi.jump = function(oToken, oDestination){
