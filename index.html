@@ -172,22 +172,21 @@ text{
 
     parcheesi.entryMove = function(oToken){
         var that = this;
-        var x = d3.select(".gamefield.waypoint.point"+that.oEntryPoints[oToken.color]).datum().x;
-        var y = d3.select(".gamefield.waypoint.point"+that.oEntryPoints[oToken.color]).datum().y
-        if(this._isProperPlayer(oToken) && this._entryFieldIsFree(oToken)){
-            d3.select("."+oToken.identifier+"."+oToken.color).transition().ease("elastic").duration(1000).attr("transform",function(d){
-                    return "translate(" + x + "," + y + ")";
-            });
-            oToken.x = x;
-            oToken.y = y;
-            oToken.fieldtype = this.oFieldTypes.waypoint;
-            this.setWaypoint(that.oEntryPoints[oToken.color],oToken)
-            this.next();
+        var datum = d3.select(".gamefield.waypoint.point"+that.oEntryPoints[oToken.color]).datum();
+        if(this._isProperPlayer(oToken) && this._waypointIsFree(oToken)){
+            this.jump(oToken,datum);
         }
     }
 
-    parcheesi._entryFieldIsFree = function(oToken){
-        var token = this.getWaypoint(this.oEntryPoints[oToken.color])
+    // if second paramter is not given, the entryfield of the oToken will be checked.
+    // if an enemy token sits on the waypoint, it will be striked and the function returns true
+    parcheesi._waypointIsFree = function(oToken, iField){
+        var token;
+        if(iField){
+            token = this.getWaypoint(iField);
+        } else {
+            token = this.getWaypoint(this.oEntryPoints[oToken.color]);
+        }
         if(!token || token.color !== oToken.color){ //STRIKE
             //strike(token);
             return true
@@ -200,19 +199,69 @@ text{
     }
 
     parcheesi.move = function(oToken){
+        debugger;
         if(this._isProperPlayer(oToken)){
-            debugger;
+            var target = (oToken.fieldnumber + this.iDiced) % 40;
+            if(this._reachesFinishZone(oToken,target)){
+                if(this._isAbleToMoveInFinishArea(oToken,target)){
+
+                }
+            } else {
+                if(this._waypointIsFree(oToken, target)){
+                    var datum =  d3.select(".gamefield.waypoint.point"+target).datum();
+                    this.jump(oToken,datum);
+                } 
+            }
         }
+    }
+
+    //The rules say you cant jump over tokens in the finish area
+    parcheesi._isAbleToMoveInFinishArea = function(oToken,target){
+        var i = 0, stepsInFinishArea = target-(this.oEntryPoints[oToken.color]-1); //cant be greater than 4
+        if(stepsInFinishArea > 3) {
+            return false;
+        } else {
+            for(i = 0; i < stepsInFinishArea; i++){
+                if(this.oFinishPoints[oToken.color][i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    parcheesi._reachesFinishZone = function(oToken, target){
+        if(oToken.fieldnumber < this.oEntryPoints[oToken.color]){
+            return target > (this.oEntryPoints[oToken.color]-1);            
+        }
+        
+    }
+
+    parcheesi.jump = function(oToken, oDestination){
+        var datum = oDestination;
+        d3.select("."+oToken.identifier+"."+oToken.color).transition().ease("elastic").duration(1000).attr("transform",function(d){
+                    return "translate(" + datum.x + "," + datum.y + ")";
+        });
+        oToken.x = datum.x;
+        oToken.y = datum.y;
+        oToken.fieldnumber = datum.waypoint || datum.finishpoint || datum.homepoint; 
+        oToken.fieldtype = this.oFieldTypes.waypoint;
+        this.setWaypoint(this.oEntryPoints[oToken.color],oToken)
+        this.next();
     }
 
     parcheesi.action = function(oToken){
         //decide which action to do
         if(oToken.fieldtype === this.oFieldTypes.homepoint){
            this.entryMove(oToken);
-        } 
+        }
 
         if(oToken.fieldtype === this.oFieldTypes.waypoint){
             this.move(oToken);
+        }
+
+        if(oToken.fieldtype === this.oFieldTypes.finishpoint){
+            //TODO
         }
     }
 
